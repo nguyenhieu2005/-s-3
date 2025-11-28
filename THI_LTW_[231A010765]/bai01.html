@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chọn ghế rạp chiếu phim</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Chọn ghế rạp chiếu phim</h1>
+  <div class="screen"></div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="legend-dot dot-standard"></span> Standard (50k)</div>
+    <div class="legend-item"><span class="legend-dot dot-vip"></span> VIP (80k)</div>
+    <div class="legend-item"><span class="legend-dot dot-sweet"></span> Sweetbox (150k)</div>
+    <div class="legend-item"><span class="legend-dot dot-selected"></span> Đang chọn</div>
+    <div class="legend-item"><span class="legend-dot dot-sold"></span> Đã bán</div>
+  </div>
+
+  <div id="grid" class="grid" aria-label="Lưới ghế"></div>
+
+  <div class="summary">
+    <span>Ghế đã chọn: <strong id="count">0</strong></span>
+    <span>Tổng tiền: <strong id="total">0</strong> VND</span>
+    <span>Danh sách: <strong id="list">—</strong></span>
+  </div>
+
+  <div class="actions">
+    <button id="payBtn" disabled>Thanh toán</button>
+    <button id="resetBtn" class="btn-secondary">Bỏ chọn</button>
+  </div>
+
+  <!-- Modal -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">Tóm tắt vé</div>
+        <button class="modal-close" id="closeModal">×</button>
+      </div>
+      <div class="modal-body">
+        <div id="ticketList" class="tickets"></div>
+        <div class="divider"></div>
+        <div><strong>Tổng tiền:</strong> <span id="modalTotal">0</span> VND</div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="cancelPay">Hủy</button>
+        <button id="confirmPay">Xác nhận</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

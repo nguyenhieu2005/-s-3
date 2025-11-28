@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TODO Matrix (Eisenhower)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="info">
+      <img src="images/avatar.jpg" alt="Avatar" class="avatar">
+      <div class="student">
+        <div class="name" id="studentName">Nguyễn Văn Hiếu </div>
+        <div class="mssv" id="studentId">MSSV: 231A010765</div>
+      </div>
+      <form class="task-form" id="taskForm">
+        <h2>Thêm công việc</h2>
+        <label for="taskName">Tên công việc</label>
+        <input id="taskName" type="text" placeholder="Nhập tên công việc" required />
+        <label for="priority">Độ ưu tiên (1-4)</label>
+        <select id="priority" required>
+          <option value="1">1 - Quan trọng & Khẩn cấp</option>
+          <option value="2">2 - Quan trọng - Không khẩn cấp</option>
+          <option value="3">3 - Không quan trọng - Khẩn cấp</option>
+          <option value="4">4 - Không quan trọng - Không khẩn cấp</option>
+        </select>
+        <button type="submit">Thêm</button>
+      </form>
+    </aside>
+
+    <main class="board">
+      <div class="quad">
+        <h3>Quan trọng & Khẩn cấp</h3>
+        <ul id="q1" class="task-list"></ul>
+      </div>
+      <div class="quad">
+        <h3>Quan trọng - Không khẩn cấp</h3>
+        <ul id="q2" class="task-list"></ul>
+      </div>
+      <div class="quad">
+        <h3>Không quan trọng - Khẩn cấp</h3>
+        <ul id="q3" class="task-list"></ul>
+      </div>
+      <div class="quad">
+        <h3>Không quan trọng - Không khẩn cấp</h3>
+        <ul id="q4" class="task-list"></ul>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

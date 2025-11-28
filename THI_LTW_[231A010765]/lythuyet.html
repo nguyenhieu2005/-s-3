@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài tập hiển thị văn bản</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f7f7fb;
+      padding: 20px;
+    }
+    h1 {
+      color: #2f7cf1;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      margin-bottom: 8px;
+      color: #333;
+    }
+    pre {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 12px;
+      border-radius: 6px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bài tập của Nguyễn Văn Hiếu - MSSV: 231A010765</h1>
+
+  <div class="section">
+    <h2>Câu 1</h2>
+    <pre>
+• display: none → Phần tử biến mất hoàn toàn: không hiển thị, không chiếm chỗ, không nhận sự kiện.
+• visibility: hidden → Phần tử ẩn đi: không hiển thị, vẫn chiếm chỗ, không nhận sự kiện.
+• opacity: 0 → Phần tử trong suốt: không nhìn thấy, vẫn chiếm chỗ, vẫn nhận sự kiện.
+
+Tóm gọn:
+• display: none = biến mất khỏi layout.
+• visibility: hidden = giữ chỗ nhưng vô hình.
+• opacity: 0 = vô hình nhưng vẫn “sống” và tương tác được.
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>Câu 2</h2>
+    <pre>
+• Nameserver: Trỏ domain về hệ thống DNS của hosting. Hosting sẽ quản lý toàn bộ bản ghi (A, MX, CNAME…). Cập nhật thường rơi vào từ vài giờ đến 1–2 ngày.
+• A Record: Trỏ trực tiếp domain về địa chỉ IP của hosting. Cập nhật nhanh hơn thường từ vài phút đến vài giờ.
+
+Kết luận: A Record cập nhật nhanh hơn.
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>Câu 3</h2>
+    <pre>
+async function getData() {
+  try {
+    const res = await fetch('https://api.example.com/data');
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+}
+    </pre>
+  </div>
+</body>
+</html>
