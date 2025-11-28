@@ -50,6 +50,51 @@
     </div>
   </div>
 
+  <!-- Section About -->
+  <section id="about">
+    <h2>About</h2>
+    <img src="images/avatar.jpg" alt="Avatar" class="avatar"/>
+    <p><strong>Họ tên:</strong> Nguyễn Văn Hiếu</p>
+    <p><strong>Ngày sinh:</strong> 10/05/2005</p>
+    <h3>Sở thích:</h3>
+    <ul id="hobbyList">
+      <li data-desc="Thích đọc sách công nghệ">Đọc sách</li>
+      <li data-desc="Yêu thích chơi bóng đá cùng bạn bè">Bóng đá</li>
+      <li data-desc="Đam mê lập trình web và sáng tạo">Lập trình</li>
+    </ul>
+    <!-- Embed video YouTube -->
+    <div class="video">
+  <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/zmNAkVdKTM4" 
+    title="YouTube video player" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+  </section>
+
+  <!-- Section Contact -->
+  <section id="contact">
+    <h2>Liên hệ</h2>
+    <form id="contactForm">
+      <label for="name">Tên:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="message">Tin nhắn:</label><br>
+      <textarea id="message" name="message" required></textarea><br><br>
+      <button type="submit">Gửi</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Bản quyền thuộc về Nguyễn Văn Hiếu</p>
+    <a href="hosting_guide.txt" target="_blank">Hosting Guide</a>
+  </footer>
+
   <script src="js/main.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

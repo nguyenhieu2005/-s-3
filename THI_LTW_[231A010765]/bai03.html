@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Box Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7fb;
+      margin: 0;
+      padding: 20px;
+    }
+    .chat-container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+    }
+    .chat-history {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    .bubble {
+      display: inline-block;
+      padding: 10px;
+      border-radius: 12px;
+      margin: 6px 0;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+    .user {
+      background: #2f7cf1;
+      color: #fff;
+      align-self: flex-end;
+    }
+    .bot {
+      background: #eee;
+      color: #333;
+      align-self: flex-start;
+    }
+    .timestamp {
+      font-size: 11px;
+      color: #666;
+      margin-top: 2px;
+    }
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 0 0 0 8px;
+    }
+    .chat-input button {
+      padding: 10px 15px;
+      border: none;
+      background: #2f7cf1;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 0 0 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div id="chatHistory" class="chat-history"></div>
+    <div class="chat-input">
+      <input id="messageInput" type="text" placeholder="Nhập tin nhắn..." />
+      <button id="sendBtn">Gửi</button>
+    </div>
+  </div>
+
+  <script>
+    const chatHistoryEl = document.getElementById('chatHistory');
+    const inputEl = document.getElementById('messageInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    let messages = JSON.parse(localStorage.getItem('chat_messages') || '[]');
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, m => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[m]));
+    }
+
+    function renderMessages() {
+      chatHistoryEl.innerHTML = '';
+      messages.forEach(msg => {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble ' + msg.sender;
+        bubble.textContent = msg.text;
+        const time = document.createElement('div');
+        time.className = 'timestamp';
+        time.textContent = msg.time;
+        chatHistoryEl.appendChild(bubble);
+        chatHistoryEl.appendChild(time);
+      });
+      chatHistoryEl.scrollTop = chatHistoryEl.scrollHeight;
+    }
+
+    function addMessage(sender, text) {
+      const msg = {
+        sender,
+        text: escapeHTML(text),
+        time: new Date().toLocaleTimeString()
+      };
+      messages.push(msg);
+      localStorage.setItem('chat_messages', JSON.stringify(messages));
+      renderMessages();
+    }
+
+    sendBtn.addEventListener('click', () => {
+      const text = inputEl.value.trim();
+      if (!text) return;
+      addMessage('user', text);
+      inputEl.value = '';
+      setTimeout(() => {
+        addMessage('bot', 'Bot trả lời: ' + text);
+      }, 2000);
+    });
+
+    renderMessages();
+  </script>
+</body>
+</html>
